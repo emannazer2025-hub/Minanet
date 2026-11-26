@@ -1,0 +1,6 @@
+{
+  "name": "Mina Net - نظام إدارة المحلات التجارية والمخازن والشركات",
+  "description": "نظام ERP ومحاسبة ومخازن ونقاط بيع متكامل لإدارة المحلات التجارية والمخازن والشركات مع استيراد البيانات الذكي وإدارة التراخيص.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,972 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --mina-desktop-bg:
+    radial-gradient(circle at 18% 15%, rgba(13, 148, 136, 0.09) 0%, transparent 42%),
+    radial-gradient(circle at 82% 85%, rgba(15, 61, 94, 0.1) 0%, transparent 45%),
+    linear-gradient(135deg, #eef3f8 0%, #e1eaf3 52%, #d3dfec 100%);
+  --mina-capsule-bg: linear-gradient(135deg, #0f3d5e 0%, #15537d 55%, #0d7377 100%);
+  --mina-capsule-border: #cbd5e1;
+  --mina-win-bg: #f4f7fa;
+  --mina-win-subbg: #e6edf5;
+  --mina-win-panel: #ffffff;
+  --mina-win-border: #94a3b8;
+  --mina-primary: #0f3d5e;
+  --mina-primary-border: #0a2940;
+  --mina-primary-cell-border: #1e5f8c;
+  --mina-taskbar-bg: #0f172a;
+  --mina-taskbar-border: #334155;
+  --mina-taskbar-btn: #1e293b;
+  --mina-taskbar-btn-hover: #283548;
+  --mina-taskbar-btn-border: #334155;
+  --mina-taskbar-btn-active: #0f5e78;
+  --mina-taskbar-btn-active-border: #38bdf8;
+  --mina-console-bar: #1e293b;
+  --mina-console-border: #0f172a;
+  --mina-accent-text: #0f3d5e;
+  --mina-popup-from: #ffffff;
+  --mina-popup-to: #f1f5f9;
+  --mina-sandstone-bg: #f1f5f9;
+  --mina-exit-bg: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+}
+
+:root[data-mina-theme="aliphia-teal"] {
+  --mina-desktop-bg: linear-gradient(125deg, #f3f3f4 0%, #e7eaed 100%);
+  --mina-capsule-bg: linear-gradient(180deg, #1bb394 0%, #15947a 48%, #107a64 52%, #18a689 100%);
+  --mina-capsule-border: #ffffff;
+  --mina-win-bg: #f3f3f4;
+  --mina-win-subbg: #e5e7eb;
+  --mina-win-panel: #ffffff;
+  --mina-win-border: #cbd5e1;
+  --mina-primary: #1bb394;
+  --mina-primary-border: #12876f;
+  --mina-primary-cell-border: #20c4a3;
+  --mina-taskbar-bg: #2b333e;
+  --mina-taskbar-border: #1f262e;
+  --mina-taskbar-btn: #343d4a;
+  --mina-taskbar-btn-hover: #3f4a59;
+  --mina-taskbar-btn-border: #4b5563;
+  --mina-taskbar-btn-active: #1bb394;
+  --mina-taskbar-btn-active-border: #5eead4;
+  --mina-console-bar: #2b333e;
+  --mina-console-border: #1f262e;
+  --mina-accent-text: #1bb394;
+  --mina-popup-from: #ffffff;
+  --mina-popup-to: #f3f3f4;
+  --mina-sandstone-bg: #f3f3f4;
+  --mina-exit-bg: linear-gradient(90deg, #2b333e 0%, #374151 48%, #1bb394 52%, #e5e7eb 100%);
+}
+
+:root[data-mina-theme="crimson-store"] {
+  --mina-desktop-bg: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  --mina-capsule-bg: linear-gradient(180deg, #ef4444 0%, #dc2626 48%, #991b1b 52%, #b91c1c 100%);
+  --mina-capsule-border: #fee2e2;
+  --mina-win-bg: #f8fafc;
+  --mina-win-subbg: #e2e8f0;
+  --mina-win-panel: #ffffff;
+  --mina-win-border: #991b1b;
+  --mina-primary: #b91c1c;
+  --mina-primary-border: #7f1d1d;
+  --mina-primary-cell-border: #dc2626;
+  --mina-taskbar-bg: #991b1b;
+  --mina-taskbar-border: #7f1d1d;
+  --mina-taskbar-btn: #b91c1c;
+  --mina-taskbar-btn-hover: #dc2626;
+  --mina-taskbar-btn-border: #ef4444;
+  --mina-taskbar-btn-active: #dc2626;
+  --mina-taskbar-btn-active-border: #fecaca;
+  --mina-console-bar: #991b1b;
+  --mina-console-border: #7f1d1d;
+  --mina-accent-text: #b91c1c;
+  --mina-popup-from: #ffffff;
+  --mina-popup-to: #fef2f2;
+  --mina-sandstone-bg: #f8fafc;
+  --mina-exit-bg: linear-gradient(90deg, #7f1d1d 0%, #dc2626 48%, #ef4444 52%, #ffffff 100%);
+}
+
+:root[data-mina-theme="emerald-trade"] {
+  --mina-desktop-bg:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.78) 0%, transparent 45%),
+    radial-gradient(circle at 80% 75%, rgba(255, 255, 255, 0.6) 0%, transparent 48%),
+    linear-gradient(125deg, #e2efe8 0%, #bdd9ca 32%, #ebf5ef 60%, #9ec4b2 100%);
+  --mina-capsule-bg: linear-gradient(180deg, #14867c 0%, #0f6b62 48%, #064e3b 52%, #0d6e61 100%);
+  --mina-capsule-border: #f0fdf4;
+  --mina-win-bg: #edf3ee;
+  --mina-win-subbg: #d7e4da;
+  --mina-win-panel: #f6faf7;
+  --mina-win-border: #2f5241;
+  --mina-primary: #0f5132;
+  --mina-primary-border: #062e1c;
+  --mina-primary-cell-border: #1e734b;
+  --mina-taskbar-bg: #0b3529;
+  --mina-taskbar-border: #2d705c;
+  --mina-taskbar-btn: #114b3a;
+  --mina-taskbar-btn-hover: #17624c;
+  --mina-taskbar-btn-border: #286c57;
+  --mina-taskbar-btn-active: #19785d;
+  --mina-taskbar-btn-active-border: #6ee7b7;
+  --mina-console-bar: #164236;
+  --mina-console-border: #0a241d;
+  --mina-accent-text: #b45309;
+  --mina-popup-from: #f2f8f4;
+  --mina-popup-to: #d7ebe0;
+  --mina-sandstone-bg: #dde7df;
+  --mina-exit-bg: linear-gradient(90deg, #064e3b 0%, #0f766e 48%, #d4a359 52%, #ecfdf5 100%);
+}
+
+:root[data-mina-theme="royal-burgundy"] {
+  --mina-desktop-bg:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.78) 0%, transparent 45%),
+    radial-gradient(circle at 80% 75%, rgba(255, 255, 255, 0.6) 0%, transparent 48%),
+    linear-gradient(125deg, #f3e8e6 0%, #dec5c1 32%, #f8f0ee 60%, #c9a7a2 100%);
+  --mina-capsule-bg: linear-gradient(180deg, #b91c1c 0%, #8b1419 48%, #5c0d14 52%, #991b1b 100%);
+  --mina-capsule-border: #fef2f2;
+  --mina-win-bg: #f3ede7;
+  --mina-win-subbg: #e3d6cc;
+  --mina-win-panel: #faf6f2;
+  --mina-win-border: #5c2d2d;
+  --mina-primary: #7f1d1d;
+  --mina-primary-border: #450a0a;
+  --mina-primary-cell-border: #9f2d2d;
+  --mina-taskbar-bg: #450a0a;
+  --mina-taskbar-border: #8a3838;
+  --mina-taskbar-btn: #5c1212;
+  --mina-taskbar-btn-hover: #741919;
+  --mina-taskbar-btn-border: #832f2f;
+  --mina-taskbar-btn-active: #991b1b;
+  --mina-taskbar-btn-active-border: #fca5a5;
+  --mina-console-bar: #4f1d1d;
+  --mina-console-border: #2a0c0c;
+  --mina-accent-text: #92400e;
+  --mina-popup-from: #faf4f2;
+  --mina-popup-to: #eddcd9;
+  --mina-sandstone-bg: #e7dbd3;
+  --mina-exit-bg: linear-gradient(90deg, #450a0a 0%, #7f1d1d 48%, #eab308 52%, #fef2f2 100%);
+}
+
+:root[data-mina-theme="steel-graphite"] {
+  --mina-desktop-bg:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.82) 0%, transparent 45%),
+    radial-gradient(circle at 80% 75%, rgba(255, 255, 255, 0.62) 0%, transparent 48%),
+    linear-gradient(125deg, #e2e8f0 0%, #cbd5e1 32%, #f1f5f9 60%, #94a3b8 100%);
+  --mina-capsule-bg: linear-gradient(180deg, #475569 0%, #273244 48%, #0f172a 52%, #334155 100%);
+  --mina-capsule-border: #f8fafc;
+  --mina-win-bg: #eef2f6;
+  --mina-win-subbg: #dbe3ec;
+  --mina-win-panel: #f8fafc;
+  --mina-win-border: #334155;
+  --mina-primary: #1e293b;
+  --mina-primary-border: #0f172a;
+  --mina-primary-cell-border: #475569;
+  --mina-taskbar-bg: #0f172a;
+  --mina-taskbar-border: #475569;
+  --mina-taskbar-btn: #1e293b;
+  --mina-taskbar-btn-hover: #334155;
+  --mina-taskbar-btn-border: #475569;
+  --mina-taskbar-btn-active: #0369a1;
+  --mina-taskbar-btn-active-border: #7dd3fc;
+  --mina-console-bar: #1e293b;
+  --mina-console-border: #0f172a;
+  --mina-accent-text: #0369a1;
+  --mina-popup-from: #f8fafc;
+  --mina-popup-to: #dde5ef;
+  --mina-sandstone-bg: #e2e8f0;
+  --mina-exit-bg: linear-gradient(90deg, #0f172a 0%, #334155 48%, #38bdf8 52%, #f1f5f9 100%);
+}
+
+:root[data-mina-theme="amber-bronze"] {
+  --mina-desktop-bg:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.8) 0%, transparent 45%),
+    radial-gradient(circle at 80% 75%, rgba(255, 255, 255, 0.62) 0%, transparent 48%),
+    linear-gradient(125deg, #f5ede0 0%, #e4d1b4 32%, #faf4ea 60%, #cfa97c 100%);
+  --mina-capsule-bg: linear-gradient(180deg, #b47218 0%, #854d0e 48%, #5c2d0c 52%, #92400e 100%);
+  --mina-capsule-border: #fffbeb;
+  --mina-win-bg: #f4eee4;
+  --mina-win-subbg: #e5d9c7;
+  --mina-win-panel: #fbf8f3;
+  --mina-win-border: #6b4423;
+  --mina-primary: #78350f;
+  --mina-primary-border: #451a03;
+  --mina-primary-cell-border: #9a4f21;
+  --mina-taskbar-bg: #3b1c0a;
+  --mina-taskbar-border: #854d0e;
+  --mina-taskbar-btn: #522810;
+  --mina-taskbar-btn-hover: #6c3516;
+  --mina-taskbar-btn-border: #7c421e;
+  --mina-taskbar-btn-active: #92400e;
+  --mina-taskbar-btn-active-border: #fcd34d;
+  --mina-console-bar: #4c2915;
+  --mina-console-border: #2b1509;
+  --mina-accent-text: #991b1b;
+  --mina-popup-from: #fbf7f0;
+  --mina-popup-to: #ecdec9;
+  --mina-sandstone-bg: #e6dac7;
+  --mina-exit-bg: linear-gradient(90deg, #451a03 0%, #78350f 48%, #f59e0b 52%, #fffbeb 100%);
+}
+
+:root[data-mina-theme="sky-azure"] {
+  --mina-desktop-bg:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.85) 0%, transparent 45%),
+    radial-gradient(circle at 80% 75%, rgba(255, 255, 255, 0.65) 0%, transparent 48%),
+    linear-gradient(125deg, #e0f2fe 0%, #bae6fd 32%, #f0f9ff 60%, #7dd3fc 100%);
+  --mina-capsule-bg: linear-gradient(180deg, #0ea5e9 0%, #0284c7 48%, #075985 52%, #0369a1 100%);
+  --mina-capsule-border: #f0f9ff;
+  --mina-win-bg: #edf5fb;
+  --mina-win-subbg: #d4e7f7;
+  --mina-win-panel: #f5faff;
+  --mina-win-border: #0369a1;
+  --mina-primary: #0369a1;
+  --mina-primary-border: #0c4a6e;
+  --mina-primary-cell-border: #0ea5e9;
+  --mina-taskbar-bg: #0c4a6e;
+  --mina-taskbar-border: #38bdf8;
+  --mina-taskbar-btn: #075985;
+  --mina-taskbar-btn-hover: #0369a1;
+  --mina-taskbar-btn-border: #0284c7;
+  --mina-taskbar-btn-active: #0284c7;
+  --mina-taskbar-btn-active-border: #bae6fd;
+  --mina-console-bar: #0c4a6e;
+  --mina-console-border: #082f49;
+  --mina-accent-text: #be123c;
+  --mina-popup-from: #f0f9ff;
+  --mina-popup-to: #d5ecfc;
+  --mina-sandstone-bg: #dcecf8;
+  --mina-exit-bg: linear-gradient(90deg, #0c4a6e 0%, #0284c7 48%, #f59e0b 52%, #f0f9ff 100%);
+}
+
+:root[data-mina-theme="clinical-teal"] {
+  --mina-desktop-bg:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.9) 0%, transparent 45%),
+    linear-gradient(125deg, #ecfeff 0%, #cffafe 45%, #f0fdfa 100%);
+  --mina-capsule-bg: linear-gradient(180deg, #14b8a6 0%, #0d9488 48%, #115e59 52%, #0f766e 100%);
+  --mina-capsule-border: #f0fdfa;
+  --mina-win-bg: #f0fdfa;
+  --mina-win-subbg: #ccfbf1;
+  --mina-win-panel: #ffffff;
+  --mina-win-border: #0f766e;
+  --mina-primary: #0f766e;
+  --mina-primary-border: #134e4a;
+  --mina-primary-cell-border: #14b8a6;
+  --mina-taskbar-bg: #134e4a;
+  --mina-taskbar-border: #2dd4bf;
+  --mina-taskbar-btn: #115e59;
+  --mina-taskbar-btn-hover: #0f766e;
+  --mina-taskbar-btn-border: #14b8a6;
+  --mina-taskbar-btn-active: #0d9488;
+  --mina-taskbar-btn-active-border: #99f6e4;
+  --mina-console-bar: #134e4a;
+  --mina-console-border: #042f2e;
+  --mina-accent-text: #0369a1;
+  --mina-popup-from: #f0fdfa;
+  --mina-popup-to: #ccfbf1;
+  --mina-sandstone-bg: #e6fffa;
+  --mina-exit-bg: linear-gradient(90deg, #134e4a 0%, #0f766e 48%, #0284c7 52%, #f0fdfa 100%);
+}
+
+:root[data-mina-theme="fresh-citrus"] {
+  --mina-desktop-bg:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.85) 0%, transparent 45%),
+    linear-gradient(125deg, #f0fdf4 0%, #dcfce7 45%, #fef9c3 100%);
+  --mina-capsule-bg: linear-gradient(180deg, #22c55e 0%, #16a34a 48%, #166534 52%, #15803d 100%);
+  --mina-capsule-border: #ffffff;
+  --mina-win-bg: #f4faf5;
+  --mina-win-subbg: #dcfce7;
+  --mina-win-panel: #ffffff;
+  --mina-win-border: #15803d;
+  --mina-primary: #15803d;
+  --mina-primary-border: #14532d;
+  --mina-primary-cell-border: #22c55e;
+  --mina-taskbar-bg: #14532d;
+  --mina-taskbar-border: #4ade80;
+  --mina-taskbar-btn: #166534;
+  --mina-taskbar-btn-hover: #15803d;
+  --mina-taskbar-btn-border: #22c55e;
+  --mina-taskbar-btn-active: #d97706;
+  --mina-taskbar-btn-active-border: #fde68a;
+  --mina-console-bar: #14532d;
+  --mina-console-border: #052e16;
+  --mina-accent-text: #d97706;
+  --mina-popup-from: #f0fdf4;
+  --mina-popup-to: #dcfce7;
+  --mina-sandstone-bg: #ecfdf5;
+  --mina-exit-bg: linear-gradient(90deg, #14532d 0%, #16a34a 48%, #f59e0b 52%, #f0fdf4 100%);
+}
+
+:root[data-mina-theme="rose-cashmere"] {
+  --mina-desktop-bg:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.85) 0%, transparent 45%),
+    linear-gradient(125deg, #fdf2f8 0%, #fce7f3 45%, #fbcfe8 100%);
+  --mina-capsule-bg: linear-gradient(180deg, #db2777 0%, #be185d 48%, #831843 52%, #9d174d 100%);
+  --mina-capsule-border: #fff1f2;
+  --mina-win-bg: #fdf8fa;
+  --mina-win-subbg: #fce7f3;
+  --mina-win-panel: #ffffff;
+  --mina-win-border: #9d174d;
+  --mina-primary: #9d174d;
+  --mina-primary-border: #500724;
+  --mina-primary-cell-border: #db2777;
+  --mina-taskbar-bg: #500724;
+  --mina-taskbar-border: #f472b6;
+  --mina-taskbar-btn: #831843;
+  --mina-taskbar-btn-hover: #9d174d;
+  --mina-taskbar-btn-border: #be185d;
+  --mina-taskbar-btn-active: #be185d;
+  --mina-taskbar-btn-active-border: #fbcfe8;
+  --mina-console-bar: #831843;
+  --mina-console-border: #500724;
+  --mina-accent-text: #b45309;
+  --mina-popup-from: #fdf2f8;
+  --mina-popup-to: #fce7f3;
+  --mina-sandstone-bg: #fdf2f8;
+  --mina-exit-bg: linear-gradient(90deg, #500724 0%, #9d174d 48%, #d4a359 52%, #fdf2f8 100%);
+}
+
+:root[data-mina-theme="obsidian-violet"] {
+  --mina-desktop-bg:
+    radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.25) 0%, transparent 45%),
+    linear-gradient(125deg, #0f172a 0%, #1e1b4b 55%, #312e81 100%);
+  --mina-capsule-bg: linear-gradient(180deg, #6366f1 0%, #4f46e5 48%, #312e81 52%, #4338ca 100%);
+  --mina-capsule-border: #e0e7ff;
+  --mina-win-bg: #eef2ff;
+  --mina-win-subbg: #e0e7ff;
+  --mina-win-panel: #ffffff;
+  --mina-win-border: #3730a3;
+  --mina-primary: #4338ca;
+  --mina-primary-border: #1e1b4b;
+  --mina-primary-cell-border: #6366f1;
+  --mina-taskbar-bg: #1e1b4b;
+  --mina-taskbar-border: #818cf8;
+  --mina-taskbar-btn: #312e81;
+  --mina-taskbar-btn-hover: #3730a3;
+  --mina-taskbar-btn-border: #4f46e5;
+  --mina-taskbar-btn-active: #4f46e5;
+  --mina-taskbar-btn-active-border: #c7d2fe;
+  --mina-console-bar: #1e1b4b;
+  --mina-console-border: #0f172a;
+  --mina-accent-text: #0284c7;
+  --mina-popup-from: #eef2ff;
+  --mina-popup-to: #e0e7ff;
+  --mina-sandstone-bg: #e0e7ff;
+  --mina-exit-bg: linear-gradient(90deg, #1e1b4b 0%, #4338ca 48%, #38bdf8 52%, #eef2ff 100%);
+}
+
+@layer base {
+  body {
+    font-family: 'Cairo', 'Tajawal', 'Tahoma', system-ui, -apple-system, sans-serif;
+    background: var(--mina-desktop-bg);
+    min-height: 100vh;
+    color: #111827;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Cairo', 'Tajawal', system-ui, sans-serif;
+  }
+
+  .font-mono-num {
+    font-family: 'IBM Plex Mono', 'Tahoma', monospace;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.mina-desktop-bg {
+  background: var(--mina-desktop-bg);
+}
+
+.mina-menu-btn {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.06);
+  transition: transform 0.14s ease, box-shadow 0.16s ease, border-color 0.16s ease;
+}
+
+.mina-menu-btn:hover {
+  border-color: #0d7377;
+  box-shadow: 0 8px 20px rgba(15, 61, 94, 0.12);
+  transform: translateY(-1px);
+}
+
+.mina-menu-btn:active {
+  transform: translateY(0);
+}
+
+.mina-hero-title {
+  color: #0f3d5e;
+}
+
+.win-btn {
+  background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+  color: #0f172a;
+  transition: background-color 0.12s ease, border-color 0.12s ease;
+}
+
+.win-btn:hover:not(:disabled) {
+  background: #f8fafc;
+  border-color: #0f3d5e;
+}
+
+.win-btn:active:not(:disabled) {
+  background: #e2e8f0;
+  box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.12);
+}
+
+.win-btn:disabled {
+  opacity: 0.48;
+  cursor: not-allowed;
+}
+
+.win-window {
+  background-color: var(--mina-win-bg);
+  border: 1px solid var(--mina-win-border);
+  border-radius: 10px;
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.22);
+}
+
+.mina-panel-surface {
+  background-color: var(--mina-sandstone-bg);
+}
+
+.mina-taskbar {
+  background-color: var(--mina-taskbar-bg);
+  border-top-color: var(--mina-taskbar-border);
+}
+
+.mina-taskbar-btn {
+  background-color: var(--mina-taskbar-btn);
+  border-color: var(--mina-taskbar-btn-border);
+  border-radius: 6px;
+}
+
+.mina-taskbar-btn:hover {
+  background-color: var(--mina-taskbar-btn-hover);
+}
+
+.mina-taskbar-btn-active {
+  background-color: var(--mina-taskbar-btn-active);
+  border-color: var(--mina-taskbar-btn-active-border);
+  border-radius: 6px;
+}
+
+.mina-accent-text {
+  color: var(--mina-accent-text);
+}
+
+.mina-popup-surface {
+  background: linear-gradient(180deg, var(--mina-popup-from) 0%, var(--mina-popup-to) 100%);
+}
+
+.mina-exit-btn {
+  background: var(--mina-exit-bg);
+  color: #f8fafc;
+}
+
+/* Color palette mapping across all 14 ERP screens */
+[data-mina-theme] .bg-\[\#ece9d8\] {
+  background-color: var(--mina-win-bg);
+}
+
+[data-mina-theme] .bg-\[\#d6d2c2\] {
+  background-color: var(--mina-win-subbg);
+}
+
+[data-mina-theme] .bg-\[\#f4f3ee\] {
+  background-color: var(--mina-win-panel);
+}
+
+[data-mina-theme] .bg-\[\#214283\] {
+  background-color: var(--mina-primary);
+}
+
+[data-mina-theme] .border-\[\#12264d\] {
+  border-color: var(--mina-primary-border);
+}
+
+[data-mina-theme] .border-\[\#375da3\] {
+  border-color: var(--mina-primary-cell-border);
+}
+
+[data-mina-theme] .bg-\[\#4a4847\] {
+  background-color: var(--mina-console-bar);
+}
+
+[data-mina-theme] .border-\[\#232221\] {
+  border-color: var(--mina-console-border);
+}
+
+/* ============================================================================
+   LAYOUT ARCHITECTURE 2: MODERN ENTERPRISE SIDEBAR (modern-sidebar)
+   ============================================================================ */
+[data-mina-layout="modern-sidebar"] body {
+  background: #f1f5f9;
+}
+
+[data-mina-layout="modern-sidebar"] .win-btn {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+  transition: background-color 0.12s ease, border-color 0.12s ease;
+}
+
+[data-mina-layout="modern-sidebar"] .win-btn:hover:not(:disabled) {
+  background: #f8fafc;
+  border-color: var(--mina-primary);
+}
+
+[data-mina-layout="modern-sidebar"] .bg-\[\#ece9d8\] {
+  background-color: #f8fafc;
+}
+
+[data-mina-layout="modern-sidebar"] .bg-\[\#d6d2c2\] {
+  background-color: #eef2f6;
+  border-color: #cbd5e1;
+}
+
+[data-mina-layout="modern-sidebar"] .bg-\[\#f4f3ee\] {
+  background-color: #ffffff;
+  border-color: #cbd5e1;
+  border-radius: 8px;
+}
+
+[data-mina-layout="modern-sidebar"] input:not([type="checkbox"]):not([type="radio"]),
+[data-mina-layout="modern-sidebar"] select,
+[data-mina-layout="modern-sidebar"] textarea {
+  border-radius: 6px;
+  border-color: #cbd5e1;
+}
+
+/* ============================================================================
+   LAYOUT ARCHITECTURE 3: POS RIBBON & TOUCH TILES (pos-ribbon)
+   ============================================================================ */
+[data-mina-layout="pos-ribbon"] body {
+  background: #eef2f6;
+}
+
+[data-mina-layout="pos-ribbon"] .win-btn {
+  background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+  border: 1.5px solid #94a3b8;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.07);
+}
+
+[data-mina-layout="pos-ribbon"] .win-btn:hover:not(:disabled) {
+  background: #ffffff;
+  border-color: var(--mina-primary);
+}
+
+[data-mina-layout="pos-ribbon"] .bg-\[\#f4f3ee\] {
+  border-radius: 10px;
+}
+
+[data-mina-layout="pos-ribbon"] input:not([type="checkbox"]):not([type="radio"]),
+[data-mina-layout="pos-ribbon"] select,
+[data-mina-layout="pos-ribbon"] textarea {
+  border-radius: 8px;
+}
+
+/* ============================================================================
+   LAYOUT ARCHITECTURE 4: WINDOWS 11 FLUENT GLASS (win11-fluent)
+   ============================================================================ */
+[data-mina-layout="win11-fluent"] .win-window {
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  box-shadow: 0 22px 55px rgba(15, 23, 42, 0.28), 0 0 0 1px rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(18px);
+}
+
+[data-mina-layout="win11-fluent"] .win-btn {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(100, 116, 139, 0.35);
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+}
+
+[data-mina-layout="win11-fluent"] .win-btn:hover:not(:disabled) {
+  background: #ffffff;
+  border-color: var(--mina-primary);
+}
+
+[data-mina-layout="win11-fluent"] .bg-\[\#f4f3ee\] {
+  border-radius: 10px;
+}
+
+[data-mina-layout="win11-fluent"] input:not([type="checkbox"]):not([type="radio"]),
+[data-mina-layout="win11-fluent"] select,
+[data-mina-layout="win11-fluent"] textarea {
+  border-radius: 8px;
+}
+
+/* ============================================================================
+   LAYOUT ARCHITECTURE 5: EXECUTIVE DARK PRO (dark-executive)
+   Full high-contrast dark mode across all 14 ERP screens
+   ============================================================================ */
+[data-mina-layout="dark-executive"] body {
+  background: #0b1120;
+  color: #f1f5f9;
+}
+
+[data-mina-layout="dark-executive"] .win-window {
+  background-color: #0f172a;
+  border-color: #334155;
+  color: #f1f5f9;
+}
+
+[data-mina-layout="dark-executive"] .win-btn {
+  background: #1e293b;
+  border: 1px solid #475569;
+  border-radius: 6px;
+  box-shadow: none;
+  color: #f8fafc;
+}
+
+[data-mina-layout="dark-executive"] .win-btn:hover:not(:disabled) {
+  background: #334155;
+  border-color: #94a3b8;
+}
+
+[data-mina-layout="dark-executive"] .bg-\[\#ece9d8\] {
+  background-color: #0f172a;
+  color: #f1f5f9;
+}
+
+[data-mina-layout="dark-executive"] .bg-\[\#d6d2c2\] {
+  background-color: #111827;
+  border-color: #334155;
+}
+
+[data-mina-layout="dark-executive"] .bg-\[\#f4f3ee\] {
+  background-color: #1e293b;
+  border-color: #334155;
+  border-radius: 8px;
+  color: #f1f5f9;
+}
+
+[data-mina-layout="dark-executive"] .mina-panel-surface {
+  background-color: #111827;
+  background-image: none;
+}
+
+[data-mina-layout="dark-executive"] .bg-\[\#eef2db\],
+[data-mina-layout="dark-executive"] .bg-\[\#f7f2e7\],
+[data-mina-layout="dark-executive"] .bg-\[\#fbf7ee\],
+[data-mina-layout="dark-executive"] .bg-\[\#f3ead8\],
+[data-mina-layout="dark-executive"] .bg-\[\#e3d7bf\] {
+  background-color: #1e293b;
+  border-color: #334155;
+  color: #f1f5f9;
+}
+
+[data-mina-layout="dark-executive"] .bg-white,
+[data-mina-layout="dark-executive"] .bg-\[\#fdfdfd\] {
+  background-color: #131c2e;
+  color: #f1f5f9;
+}
+
+[data-mina-layout="dark-executive"] .bg-slate-50,
+[data-mina-layout="dark-executive"] .bg-slate-100 {
+  background-color: #1a2438;
+}
+
+[data-mina-layout="dark-executive"] .border-\[\#8c8c8c\],
+[data-mina-layout="dark-executive"] .border-\[\#aca899\],
+[data-mina-layout="dark-executive"] .border-\[\#7f9db9\],
+[data-mina-layout="dark-executive"] .border-slate-200,
+[data-mina-layout="dark-executive"] .border-slate-300 {
+  border-color: #334155;
+}
+
+[data-mina-layout="dark-executive"] input:not([type="checkbox"]):not([type="radio"]),
+[data-mina-layout="dark-executive"] select,
+[data-mina-layout="dark-executive"] textarea {
+  background-color: #0b1322;
+  color: #f8fafc;
+  border-color: #475569;
+  border-radius: 6px;
+}
+
+[data-mina-layout="dark-executive"] input::placeholder,
+[data-mina-layout="dark-executive"] textarea::placeholder {
+  color: #64748b;
+}
+
+[data-mina-layout="dark-executive"] .text-slate-900,
+[data-mina-layout="dark-executive"] .text-slate-800,
+[data-mina-layout="dark-executive"] .text-black {
+  color: #f8fafc;
+}
+
+[data-mina-layout="dark-executive"] .text-slate-700 {
+  color: #cbd5e1;
+}
+
+[data-mina-layout="dark-executive"] .text-slate-600,
+[data-mina-layout="dark-executive"] .text-slate-500 {
+  color: #94a3b8;
+}
+
+[data-mina-layout="dark-executive"] .text-blue-950,
+[data-mina-layout="dark-executive"] .text-blue-900,
+[data-mina-layout="dark-executive"] .text-blue-800,
+[data-mina-layout="dark-executive"] .text-blue-700,
+[data-mina-layout="dark-executive"] .text-\[\#214283\] {
+  color: #60a5fa;
+}
+
+[data-mina-layout="dark-executive"] .text-emerald-950,
+[data-mina-layout="dark-executive"] .text-emerald-900,
+[data-mina-layout="dark-executive"] .text-emerald-800,
+[data-mina-layout="dark-executive"] .text-emerald-700 {
+  color: #34d399;
+}
+
+[data-mina-layout="dark-executive"] .text-red-950,
+[data-mina-layout="dark-executive"] .text-red-900,
+[data-mina-layout="dark-executive"] .text-red-800,
+[data-mina-layout="dark-executive"] .text-red-700,
+[data-mina-layout="dark-executive"] .text-\[\#991b1b\] {
+  color: #f87171;
+}
+
+[data-mina-layout="dark-executive"] .text-amber-950,
+[data-mina-layout="dark-executive"] .text-amber-900,
+[data-mina-layout="dark-executive"] .text-amber-800,
+[data-mina-layout="dark-executive"] .text-amber-700 {
+  color: #fbbf24;
+}
+
+[data-mina-layout="dark-executive"] .bg-red-100,
+[data-mina-layout="dark-executive"] .bg-red-50 {
+  background-color: rgba(153, 27, 27, 0.35);
+  border-color: #b91c1c;
+  color: #fecaca;
+}
+
+[data-mina-layout="dark-executive"] .bg-emerald-100,
+[data-mina-layout="dark-executive"] .bg-emerald-50 {
+  background-color: rgba(6, 95, 70, 0.35);
+  border-color: #059669;
+  color: #a7f3d0;
+}
+
+[data-mina-layout="dark-executive"] .bg-amber-100,
+[data-mina-layout="dark-executive"] .bg-amber-50 {
+  background-color: rgba(146, 64, 14, 0.35);
+  border-color: #d97706;
+  color: #fde68a;
+}
+
+[data-mina-layout="dark-executive"] .bg-blue-100,
+[data-mina-layout="dark-executive"] .bg-blue-50 {
+  background-color: rgba(30, 64, 175, 0.35);
+  border-color: #2563eb;
+  color: #bfdbfe;
+}
+
+/* ============================================================================
+   LAYOUT ARCHITECTURE 6: CLOUD ANALYTICS (cloud-analytics - Aliphia Style)
+   ============================================================================ */
+[data-mina-layout="cloud-analytics"] body {
+  background: #f3f3f4;
+}
+
+[data-mina-layout="cloud-analytics"] .win-btn {
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+  transition: background-color 0.14s ease, border-color 0.14s ease;
+}
+
+[data-mina-layout="cloud-analytics"] .win-btn:hover:not(:disabled) {
+  background: #f9fafb;
+  border-color: #1bb394;
+}
+
+[data-mina-layout="cloud-analytics"] .bg-\[\#ece9d8\] {
+  background-color: #f3f3f4;
+}
+
+[data-mina-layout="cloud-analytics"] .bg-\[\#d6d2c2\] {
+  background-color: #e5e7eb;
+  border-color: #d1d5db;
+}
+
+[data-mina-layout="cloud-analytics"] .bg-\[\#f4f3ee\] {
+  background-color: #ffffff;
+  border-color: #e5e7eb;
+  border-radius: 4px;
+}
+
+[data-mina-layout="cloud-analytics"] input:not([type="checkbox"]):not([type="radio"]),
+[data-mina-layout="cloud-analytics"] select,
+[data-mina-layout="cloud-analytics"] textarea {
+  border-radius: 4px;
+  border-color: #d1d5db;
+}
+
+/* ============================================================================
+   LAYOUT ARCHITECTURE 7: CRIMSON 3D STORE (crimson-3d-store)
+   ============================================================================ */
+[data-mina-layout="crimson-3d-store"] body {
+  background: #ffffff;
+}
+
+.crimson-3d-btn {
+  background: linear-gradient(180deg, #f87171 0%, #dc2626 22%, #b91c1c 65%, #7f1d1d 100%);
+  border: 1px solid #7f1d1d;
+  border-radius: 4px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    0 2px 5px rgba(127, 29, 29, 0.35);
+  color: #ffffff;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45);
+  transition: transform 0.12s ease, filter 0.14s ease, box-shadow 0.14s ease;
+}
+
+.crimson-3d-btn:hover:not(:disabled) {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    0 4px 10px rgba(185, 28, 28, 0.35);
+}
+
+.crimson-3d-btn:active:not(:disabled) {
+  transform: translateY(1px);
+  filter: brightness(0.95);
+}
+
+[data-mina-layout="crimson-3d-store"] .win-btn {
+  background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+  border: 1px solid #cbd5e1;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
+}
+
+[data-mina-layout="crimson-3d-store"] .win-btn:hover:not(:disabled) {
+  border-color: #b91c1c;
+  background: #fef2f2;
+}
+
+[data-mina-layout="crimson-3d-store"] .bg-\[\#ece9d8\] {
+  background-color: #f8fafc;
+}
+
+[data-mina-layout="crimson-3d-store"] .bg-\[\#f4f3ee\] {
+  background-color: #ffffff;
+  border-color: #e2e8f0;
+  border-radius: 6px;
+}
+
+/* ============================================================================
+   LAYOUT ARCHITECTURE 8: RADIAL WHEEL HUB (radial-wheel)
+   ============================================================================ */
+[data-mina-layout="radial-wheel"] body {
+  background: #eef1f5;
+}
+
+.radial-warehouse-bg {
+  background:
+    radial-gradient(circle at 50% 46%, rgba(255, 255, 255, 0.96) 0%, rgba(248, 250, 252, 0.88) 42%, rgba(226, 232, 240, 0.92) 100%);
+}
+
+.radial-wedge-btn {
+  transition: transform 0.16s cubic-bezier(0.16, 1, 0.3, 1), filter 0.16s ease;
+  transform-origin: 280px 280px;
+}
+
+.radial-wedge-btn:hover,
+.radial-wedge-btn:focus-visible {
+  transform: scale(1.035);
+  filter: brightness(1.06);
+  outline: none;
+}
+
+[data-mina-layout="radial-wheel"] .win-btn {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+}
+
+[data-mina-layout="radial-wheel"] .win-btn:hover:not(:disabled) {
+  border-color: #65a30d;
+  background: #f7fee7;
+}
+
+[data-mina-layout="radial-wheel"] .bg-\[\#ece9d8\] {
+  background-color: #f4f6f9;
+}
+
+[data-mina-layout="radial-wheel"] .bg-\[\#f4f3ee\] {
+  background-color: #ffffff;
+  border-color: #e2e8f0;
+  border-radius: 10px;
+}
+
+/* Custom sleek scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #e5e7eb;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 3px;
+}
+
+[data-mina-layout="dark-executive"] ::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+[data-mina-layout="dark-executive"] ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+
+@media print {
+  body,
+  [data-mina-layout="dark-executive"] body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .print-a4 {
+    width: 210mm;
+    margin: 0 auto;
+    padding: 10mm;
+    font-size: 12px;
+  }
+
+  .print-80mm {
+    width: 78mm;
+    margin: 0 auto;
+    padding: 3mm;
+    font-size: 11px;
+  }
+
+  .print-58mm {
+    width: 56mm;
+    margin: 0 auto;
+    padding: 2mm;
+    font-size: 10px;
+  }
+}
